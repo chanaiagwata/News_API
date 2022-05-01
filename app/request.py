@@ -28,7 +28,7 @@ def get_news_sources(category):
     '''
     Function that gets json response to our url request
     '''
-    get_news_url  = sources_base_url(category,api_key)
+    get_news_url  = sources_base_url.format(category,api_key)
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
         get_news_response= json.loads(get_news_data)
@@ -63,6 +63,52 @@ def process_results(source_list):
             news_source_results.append(source_object)
     
     return news_source_results
+
+def get_allArticles(id):
+    '''
+    Function that processes the articles and returns a list of articles objects
+    '''
+    get_articles_url = everything_base_url.format(id,api_key)
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
+        
+        articles_results = None
+        
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response('articles')
+            articles_results = process_results(articles_results_list)
+            
+        return articles_results
+    
+#processing articles results
+
+def processs_results2(article_list):
+    '''
+    Function  that processes the articles result and transform them to a list of Objects
+    
+    Args:
+        article_list: A list of dictionaries that contain news source details
+    Returns:
+        articles_results: A list of articles objects
+    '''
+    articles_results = []
+    
+    for article_item in article_list:
+        source = article_item.get('source')
+        title = article_item.get('title')
+        description = article_item.get('description')
+        image = article_item.get('urlToImage')
+        author = article_item.get('author')
+        date = article_item.get('publishedAt')
+        url = article_item.get('url')
+        
+        if image:
+            article_object = Articles(source,title,description,image,author,date,url)
+            articles_results.append(article_object)
+    
+    return articles_results
+        
     
 
 
