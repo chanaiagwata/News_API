@@ -1,15 +1,25 @@
-from urllib import request
-import json
+import urllib.request,json
+from .models import Sources,Articles
+
+# Getting api key
+api_key = None
+#Getting base url
+base_url = None
+#Getting the Sources base url
+source_base_url = None
+#Getting the everything base url
+everything_base_url = None
+#Getting the headlines base url
+headlines_base_url = None
 
 
-#testing api call
-def get_sources():
-    base_url= 'https://newsapi.org/v2/top-headlines/sources?apiKey=3c34a2ef4db449d6a9d1f8926d14304c'
-    
-    with request.urlopen(base_url) as url:
-        get_sources_data = url.read()
-        py_readable_urlData = json.loads(get_sources_data)
-        
-        print(py_readable_urlData)
-        
-get_sources()
+
+# Functions that take in application instance and replaces the None values above with configuration objects
+def configure_reques(app):
+    global api_key,sources_base_url,articles_base_url
+    api_key  = app.config['NEWS_API_KEY']
+
+
+
+
+
