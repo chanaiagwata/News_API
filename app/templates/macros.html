@@ -1,14 +1,30 @@
 <!--Displaying the source list macro-->
-{% comment %} {%macro displaySourceList(source_list)%}
+{%macro displaySourceList(source_list)%}
     {% for source in source_list %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 source card">
-            <img src="{{source.urlToImage}}" alt="{{source.title}}urlToImage" class="img-responsive">
-            <li class="text-center">
-                <a href="/">
+    <div class="col-md-3">           
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a href="#">
+                    {{ source_list.name}}
+                </a>
+            </div>
+            <div class="panel-body">
+                <p>
+                    {{ source_list.description |truncate(100)}}
+
+                </p>
+                <a href="/sources/{{source_list.url}}">Read News</a>
+            </div>
+            
+
+        </div>
+    </div>
+    </div>
+    {% endfor %}
 
 
 
 
 
 
-{%endmacro%} {% endcomment %}
+{%endmacro%}

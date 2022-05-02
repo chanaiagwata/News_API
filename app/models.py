@@ -1,11 +1,19 @@
+from unicodedata import category
+
+
 class Sources:
     '''
     Sources class to define Sources objects
     '''
-    def __init__(self, name, description, url):
-        self.name=name
-        self.description=description
-        self.url=url
+    def __init__(self,id,name,description,url,category,country,language):
+        self.id =id
+        self.name = name
+        self.description = description
+        self.url = url
+        self.category = category
+        self.country = country
+        self.language = language
+
         
 class Articles:
     '''

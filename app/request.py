@@ -1,5 +1,8 @@
+from unicodedata import category
 import urllib.request,json
-from .models import Sources,Articles
+from .models import Sources
+from .models import Articles
+
 
 # Getting api key
 api_key = None
@@ -17,7 +20,7 @@ headlines_base_url = None
 # Functions that take in application instance and replaces the None values above with configuration objects
 def configure_request(app):
     global api_key,sources_base_url,source_base_url,everything_base_url,headlines_base_url
-    api_key  = app.config['NEWS_API_KEY']
+    api_key = app.config['NEWS_API_KEY']
     sources_base_url = app.config['NEWS_BASE_SOURCES_URL']
     source_base_url = app.config['NEWS_BASE_SOURCE_URL']
     everything_base_url = app.config['NEWS_BASE_EVERYTHING_URL']
@@ -53,12 +56,18 @@ def process_results(source_list):
 
     news_source_results = []
     for source_item in source_list:
-        name = source_item.get('name')
-        description = source_item.get('description')
-        url = source_item.get('url')
-        
-        if name:
-            source_object = Sources(name,description,url)
+            id = source_item.get('id') 
+            name = source_item.get('name')
+            description = source_item.get('description')
+            url = source_item.get('url')
+            category = source_item.get('category')
+            language = source_item.get('language')
+            country = source_item.get('country')
+
+
+            
+            
+            source_object = Sources(id,name,description,url,category,country,language)
             news_source_results.append(source_object)
     
     return news_source_results
