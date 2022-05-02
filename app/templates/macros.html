@@ -5,15 +5,15 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <a href="#">
-                    {{ source_list.name}}
+                    {{ source.name}}
                 </a>
             </div>
             <div class="panel-body">
                 <p>
-                    {{ source_list.description |truncate(100)}}
+                    {{ source.description |truncate(100)}}
 
                 </p>
-                <a href="/sources/{{source_list.url}}">Read News</a>
+                <a href="/sources/{{source.url}}">Read News</a>
             </div>
             
 
