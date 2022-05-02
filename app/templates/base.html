@@ -1,7 +1,43 @@
 {% extends 'bootstrap/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome to NEWSBREAK, stay updated with world news as it breaks</title>
+    {% endif %}
+
+</head>
+<body>
+    <!-- Navbar block  --> 
+    {% block navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
+
+    {%endblock%}
+    <!-- other content goes hear--> ->
+    {% block footer %}
+
+    {% block footer %}
+    <div class="container-fluid footer">
+        <p class="text-center text-danger fw-bold">
+            © 2022 - <span class="logo">News-BREAK</span> By Chanai Agwata
+        </p>
+        <p class="text-center fw-bold text-primary"><em>Find today's news from across the world</em></p>
+    </div>
+    {% endblock %}
+
+</body>
+</html>
 
 
-<!-- Navbar block  --> 
-{% block navbar %}
-    {% include 'navbar.html' %}
-{% endblock %}
+
+
+
+
+
+
