@@ -1,4 +1,3 @@
-from concurrent.futures import process
 import urllib.request,json
 from .models import Sources,Articles
 
@@ -83,12 +82,12 @@ def get_allArticles(id):
     
 #processing articles results
 
-def processs_results2(article_list):
+def process_results2(article_list):
     '''
     Function  that processes the articles result and transform them to a list of Objects
     
     Args:
-        article_list: A list of dictionaries that contain news source details
+        article_list: A list of dictionaries that contain articles details
     Returns:
         articles_results: A list of articles objects
     '''
@@ -108,7 +107,51 @@ def processs_results2(article_list):
             articles_results.append(article_object)
     
     return articles_results
+
+
+def get_headlines(title):
+    '''
+    Function that processes the headlines and returns a list of headlines objects
+    '''
+    get_headlines_url = headlines_base_url.format(title,api_key)
+    with urllib.request.urlopen(get_headlines_url) as url:
+        get_headlines_data = url.read()
+        get_headlines_response = json.loads(get_headlines_data)
         
+        headlines_results = None
+        
+        if get_headlines_response['articles']:
+            headlines_results_list  = get_headlines_response('articles')
+            headlines_results = process_results(headlines_results_list)
+            
+            return headlines_results
+        
+#processing headlines results
+        
+def process_results3(headlines_list):
+    '''
+    Function  that processes the headlines result and transform them to a list of Objects
+    Args:
+    headlies_list: A list of dictionaries that contain news headlines details
+    Returns:  
+    headlines_results: A list of headlines objects  
+    '''
+    
+    headlines_results = []
+    for headline_item in headlines_list:
+        source = headline_item.get('source')
+        title = headline_item.get('title')
+        description = headline_item.get('description')
+        image = headline_item.get('urlToImage')
+        author = headline_item.get('author')
+        date = headline_item.get('publishedAt')
+        url = headline_item.get('url')
+        
+        if title:
+            headline_object = Articles(source,title,description,image,author,date,url)
+            headlines_results.append(headline_object)
+        return headlines_results
+    
     
 
 
