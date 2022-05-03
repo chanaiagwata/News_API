@@ -24,7 +24,7 @@
 * Select a news source and read articles.
 * The news sources are grouped into business,technology,sports, and entertainment categories.
 
-![screenshot]()
+![screenshot](https://raw.githubusercontent.com/chanaiagwata/News_API/master/app/static/herok.png)
 ### Languages and Frameworks
 * HTML
 * CSS
