@@ -3,13 +3,13 @@
 ## By Chanai Agwata
 ### (MS School Project)
 
-* [Overall Description](https://github.com/chanaiagwata/Quote-App/tree/master#overall-project-description)
+* [Overall Description](https://github.com/chanaiagwata/News_API#overall-project-description)
 
-* [Setup Instructions](https://github.com/chanaiagwata/Quote-App/tree/master#setup-instructions)
+* [Setup Instructions](https://github.com/chanaiagwata/News_API#setup-instructions)
 
-* [License](https://github.com/chanaiagwata/Quote-App/tree/master#license)
+* [License](https://github.com/chanaiagwata/News_API#license)
 
-* [Author's Info](https://github.com/chanaiagwata/Quote-App/tree/master#authors-info)
+* [Author's Info](https://github.com/chanaiagwata/News_API#authors-info)
 
 ## Overall Project Description
 <p>This is a an application that allows users to preview news articles from various sources.</p>
