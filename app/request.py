@@ -23,7 +23,7 @@ def configure_request(app):
     api_key = app.config['NEWS_API_KEY']
     sources_base_url = app.config['NEWS_BASE_SOURCES_URL']
     source_base_url = app.config['NEWS_BASE_SOURCE_URL']
-    everything_base_url = app.config['NEWS_BASE_EVERYTHING_URL']
+    everything_base_url = app.config['NEWS_BASE_HEADLINES_URL']
     headlines_base_url = app.config['NEWS_BASE_HEADLINES_URL']
 
 def get_news_sources(category):

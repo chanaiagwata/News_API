@@ -1,22 +1,36 @@
-{% extends 'base.html' %}
-{% import 'macros.html' as macro %}
 
+  
+{%extends 'base.html'%}
 {% block content %}
-<div class='container-fluid'>
-    <h3>Top Articles</h3>
-    <hr>
+<div class="container-fluid bg-dark" id="cover">
+    <h2 class="text-center">Our Latest, Hottest Articles</h2>
+    <div class="row text-center">
+        {% for article in articles %}
+        <div class="col-md-4">
 
-    {{ macro.displayArticleList(articles_list)}}
-    
+            <div class="card border-primary mb-3">
+                <div>
+                    <img src="{{article.urlToImage}}" class="img-responsive" id="img-responsive" alt="image" style="height:220px; width:100%">
+                </div>
+                <div class="card-header text-center fw-bold">
+                    <h4 class="title bg-light">
+                        {{article.title}}
+                    </h4>
+                </div>
+                <div class="card-body text-center">
+                    <p class="desc">{{article.description}}</p>
+                    <a href="{{article.url}}" class="btn btn-outline-info" target="_blank"">Checkout the Article in Details</a>
+                </div>
+                <p class="author"><i class="fa-solid fa-user-tie fs-1 text-primary"></i> Authored by {{article.author}}</p>
+                <div class="card-footer text-muted">
+                   <em class="text-primary fw-bold"> <i class="fa-solid fa-calendar-check"></i> Published on {{article.publishedAt}}</em> 
 
+                </div>
+            </div>
+        </div>
+        {% endfor %}
 
-
-
-
+    </div>
 </div>
-
-
-
-
-{% endblock %}
+  {% endblock%}
 
