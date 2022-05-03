@@ -118,11 +118,11 @@ def process_results2(article_list):
     return articles_results
 
 
-def get_headlines(title):
+def get_headlines(id):
     '''
     Function that processes the headlines and returns a list of headlines objects
     '''
-    get_headlines_url = headlines_base_url.format(title,api_key)
+    get_headlines_url = headlines_base_url.format(id,api_key)
     with urllib.request.urlopen(get_headlines_url) as url:
         get_headlines_data = url.read()
         get_headlines_response = json.loads(get_headlines_data)
@@ -130,7 +130,7 @@ def get_headlines(title):
         headlines_results = None
         
         if get_headlines_response['articles']:
-            headlines_results_list  = get_headlines_response('articles')
+            headlines_results_list  = get_headlines_response['articles']
             headlines_results = process_results(headlines_results_list)
             
             return headlines_results
@@ -148,6 +148,8 @@ def process_results3(headlines_list):
     
     headlines_results = []
     for headline_item in headlines_list:
+        id = headline_item.get('id')
+        name = headline_item.get('name')
         source = headline_item.get('source')
         title = headline_item.get('title')
         description = headline_item.get('description')
@@ -157,7 +159,7 @@ def process_results3(headlines_list):
         url = headline_item.get('url')
         
         if title:
-            headline_object = Articles(source,title,description,image,author,date,url)
+            headline_object = Articles(id,name,source,title,description,image,author,date,url)
             headlines_results.append(headline_object)
         return headlines_results
     

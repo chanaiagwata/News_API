@@ -21,21 +21,25 @@ def index():
     
     return render_template('index.html', title = title, business_sources = business_sources, sports_sources=sports_sources, technology_sources=technology_sources,entertainment_sources=entertainment_sources)
 
-@main.route('/articles/<id>')
-def articles(id):
+@main.route('/articles')
+def articles():
     '''
     view article page
     '''
     articles = get_allArticles(id)
     return render_template("articles.html", id = id, articles = articles)
 
-# @main.route('/headlines/<title>')  
-# def headlines(title):
-#     '''
-#     view headline page
-#     '''
-#     headlines = get_headlines(title)
-#     return render_template('headlines.html', title = title, headlines = headlines)
+@main.route('/headlines')  
+def headlines():
+    '''
+    view headline page
+    '''
+    #getting headlines
+    headline_id = get_headlines('id')
+    headline_name = get_headlines('name')
+    
+    title = 'Top Headlines'
+    return render_template('headlines.html', title = title, headline_id= headline_id, headline_name=headline_name)
     
 
 

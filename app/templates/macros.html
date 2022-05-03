@@ -14,7 +14,7 @@
 
                 </p>
                 
-                <a href="{{source.url}}">Read News</a>
+                <a href="{{source.url}}">Read Articles</a>
             </div>
             
         </div>
@@ -23,6 +23,69 @@
     {% endfor %}
 
 {%endmacro%}
-<!--Displaying article list-->
+
+<!--Dislaying article list-->
+{%macro displayArticleList(article_list)%}
+    {% for source in source_list %}
+    <div class="col-lg-3 col-md-6 col-sm-12">           
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p class='text-center' style='font-weight:bold;font-size:24px;'>
+                    {{ article.name}}
+                </p>
+            </div>
+            <div class="panel-body">
+                <p>
+                    {{ article.description |truncate(100)}}
+
+                </p>
+                <p class='text-center' style='font-size:18px;'>
+                    {{ articles.author}}
+                </p>
+                <p class='text-center'>
+                    {{ articles.date}}
+                </p>
+                <a href="{{articles.url}}">Read More</a>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+
+{%endmacro%}
 
 
+
+<!--Displaying Headlines list-->
+
+{%macro displayHeadlinesList(headlines_list)%}
+    {% for source in source_list %}
+    <div class="col-lg-3 col-md-6 col-sm-12">           
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p class='text-center' style='font-weight:bold;font-size:24px;'>
+                    {{ articles.name}}
+                </p>
+            </div>
+            <div class="panel-body">
+                <p>{{articles.source}}</p>
+                <p>
+                    {{ articles.description |truncate(100)}}
+
+                </p>
+                <p class='text-center' style='font-size:18px;'>
+                    {{ articles.author}}
+                </p>
+                <p class='text-center'>
+                    {{ articles.date}}
+                </p>
+                <a href="{{articles.url}}">Read More</a>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+
+{%endmacro%}
