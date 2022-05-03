@@ -7,28 +7,31 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <h3> Top Business News Sources</h3>
+<div class="text-center container">
+    <h2 class="text-center" style="font-weight:bold; color:red;"> Top Business News Sources</h2>
     <hr>
 
         {{ macro.displaySourceList(business_sources)}}
 
-    <h3>Top Tech News Sources</h3>
+    <h2 class="text-center" style="font-weight:bold; color:red;">Top Tech News Sources</h2>
+    <hr>
     <hr>
 
     {{ macro.displaySourceList(technology_sources)}}
 
-    <h3>Top Tech News Sources</h3>
+    <h2 class="text-center" style="font-weight:bold; color:red;">Top Tech News Sources</h2>
     <hr>
 
     {{ macro.displaySourceList(technology_sources)}}
 
-    <h3>Top Entertainment News Sources</h3>
+    <h2 class="text-center" style="font-weight:bold; color:red;">Top Entertainment News Sources</h2>
+    <hr>
     <hr>
 
     {{ macro.displaySourceList(entertainment_sources)}}
 
-    <h3>Top Sports News Sources</h3>
+    <h2 class="text-center" style="font-weight:bold; color:red;">Top Sports News Sources</h2>
+    <hr>
     <hr>
 
     {{ macro.displaySourceList(sports_sources)}}

@@ -22,7 +22,6 @@ def configure_request(app):
     global api_key,sources_base_url,source_base_url,everything_base_url,headlines_base_url
     api_key = app.config['NEWS_API_KEY']
     sources_base_url = app.config['NEWS_BASE_SOURCES_URL']
-    source_base_url = app.config['NEWS_BASE_SOURCE_URL']
     everything_base_url = app.config['NEWS_BASE_HEADLINES_URL']
     headlines_base_url = app.config['NEWS_BASE_HEADLINES_URL']
 

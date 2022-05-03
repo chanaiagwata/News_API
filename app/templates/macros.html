@@ -1,67 +1,39 @@
-<!--Displaying the source list macro-->
-{%macro displaySourceList(source_list)%}
-    {% for source in source_list %}
-    <div class="col-lg-3 col-md-6 col-sm-12">           
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <p class='text-center' style='font-weight:bold;font-size:24px;'>
-                    {{ source.name}}
-                </p>
-            </div>
-            <div class="panel-body">
-                <p>
-                    {{ source.description |truncate(100)}}
 
-                </p>
+{%macro displaySourceList(source_list)%} 
+<div class='container-fluid'>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for source in source_list %}
+        <div class="col-lg-3 mb-2 " id="col">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class='text-center' style='font-weight:bold;font-size:24px;'>
+                        {{ source.name}}
+                    </p>
+                </div>
+                <div class="panel-body" style='font-family:sans-serif; font-size:18px;'>
+                    <p>
+                        {{ source.description |truncate(80)}}
+    
+                    </p>               
+                    
+                    <a href="{{source.url}}">Read Articles </a>
+                </div>
                 
-                <a href="{{source.url}}">Read Articles</a>
             </div>
-            
         </div>
+        {% endfor %}  
     </div>
-    </div>
-    {% endfor %}
+
+</div>    
 
 {%endmacro%}
-
-<!--Dislaying article list-->
-{%macro displayArticleList(article_list)%}
-    {% for source in source_list %}
-    <div class="col-lg-3 col-md-6 col-sm-12">           
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <p class='text-center' style='font-weight:bold;font-size:24px;'>
-                    {{ article.name}}
-                </p>
-            </div>
-            <div class="panel-body">
-                <p>
-                    {{ article.description |truncate(100)}}
-
-                </p>
-                <p class='text-center' style='font-size:18px;'>
-                    {{ articles.author}}
-                </p>
-                <p class='text-center'>
-                    {{ articles.date}}
-                </p>
-                <a href="{{articles.url}}">Read More</a>
-            </div>
-            
-        </div>
-    </div>
-    </div>
-    {% endfor %}
-
-{%endmacro%}
-
 
 
 <!--Displaying Headlines list-->
 
 {%macro displayHeadlinesList(headlines_list)%}
     {% for source in source_list %}
-    <div class="col-lg-3 col-md-6 col-sm-12">           
+    <div class="row row-cols-1 row-cols-md-3 g-4">           
         <div class="panel panel-default">
             <div class="panel-heading">
                 <p class='text-center' style='font-weight:bold;font-size:24px;'>
